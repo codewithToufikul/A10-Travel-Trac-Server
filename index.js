@@ -25,6 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const manageTouristSpotCollections = client.db("spotDB").collection("manageTouristSpotCollections");
+    const manageCountryCollection = client.db("spotDB").collection("manageCountryCollection");
 
 
 
@@ -35,6 +36,10 @@ async function run() {
     })
     app.get("/spots", async(req, res)=>{
       const result = await manageTouristSpotCollections.find().toArray();
+      res.send(result)
+    })
+    app.get("/countrys", async(req, res)=>{
+      const result = await manageCountryCollection.find().toArray();
       res.send(result)
     })
 
