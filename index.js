@@ -51,8 +51,8 @@ async function run() {
       res.send(spot)
     })
     app.get("/countrys/:country_name", async(req, res)=>{
-      const country_name = req.params.country_name;
-      const findID = {country_name: country_name};
+      const countryNname = req.params.country_name;
+      const findID = {country_name: countryNname};
       const country = await manageCountryCollection.findOne(findID);
       res.send(country)
     })
