@@ -45,10 +45,9 @@ async function run() {
 
     app.get("/spots/:id", async(req, res)=>{
       const id = req.params.id;
-      console.log(id);
       const findID = {_id: new ObjectId(id)};
-      const spot = await manageTouristSpotCollections.findOne(findID);
-      res.send(spot)
+      const result = await manageTouristSpotCollections.findOne(findID);
+      res.send(result)
     })
     app.get("/countrys/:country_name", async(req, res)=>{
       const countryNname = req.params.country_name;
